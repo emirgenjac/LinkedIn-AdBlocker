@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn AdBlocker",
+    "description": "Blocks ads on LinkedIn.",
+    "version": "0.0.1",
+    "author": "Emir Genjac",
+    "permissions": [
+        "scripting",
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "https://*.linkedin.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*.linkedin.com/*"],
+            "js": ["linkedin.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_title": "LinkedIn AdBlocker"
+    }
+}
